@@ -1,0 +1,42 @@
+{
+  "name": "devanalytics",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:contentscript-background": "NODE_ENV=production webpack --config webpack.config.js",
+    "build": "npm run build:contentscript-background",
+    "watch:contentscript-background": "NODE_ENV=development webpack --config webpack.config.js -w",
+    "watch": "npm-run-all -parallel watch:*",
+    "clean": "rm -rf dist && cpy manifest.json dist && cpy src/assets/* dist/assets",
+    "prebuild": "npm run clean",
+    "prewatch": "npm run clean"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "@types/chrome": "0.0.116",
+    "@types/firefox": "0.0.30",
+    "@types/node": "^14.0.13",
+    "@typescript-eslint/eslint-plugin": "^3.4.0",
+    "@typescript-eslint/parser": "^3.4.0",
+    "awesome-typescript-loader": "^5.2.1",
+    "cpy-cli": "^3.1.1",
+    "css-loader": "^3.6.0",
+    "eslint": "^7.3.0",
+    "eslint-plugin-react": "^7.20.0",
+    "mini-css-extract-plugin": "^0.9.0",
+    "node-sass": "^4.14.1",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.0.5",
+    "sass-loader": "^8.0.2",
+    "ts-node": "^8.10.2",
+    "tslint": "^6.1.2",
+    "typescript": "^3.9.5",
+    "webextension-polyfill-ts": "^0.17.0",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12"
+  }
+}
